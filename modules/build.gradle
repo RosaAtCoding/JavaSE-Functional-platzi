@@ -1,5 +1,5 @@
-group 'com.platzi'
-version '0.0.1'
+group = 'com.platzi'
+version = '0.0.1'
 
 repositories {
     mavenCentral()
