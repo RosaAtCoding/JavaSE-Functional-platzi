@@ -9,11 +9,11 @@ public class AgeUtils {
     public static void main(String[] args) {
         Function<Integer, String> addZeros = x -> x < 10 ? "0" + x : String.valueOf(x);
 
-        TriFUnction<Integer, Integer, Integer, LocalDate> parseDate =
+        TriFunction<Integer, Integer, Integer, LocalDate> parseDate =
                 (day, month, year) ->
                         LocalDate.parse(year + "-" + addZeros.apply(month) + "-" + addZeros.apply(day));
 
-        TriFUnction<Integer, Integer, Integer, Integer> calculateAge =
+        TriFunction<Integer, Integer, Integer, Integer> calculateAge =
                 (day, month, year) ->
                         Period.between(parseDate.apply(day, month, year), LocalDate.now()).getYears();
 
@@ -26,7 +26,7 @@ public class AgeUtils {
         contiene un único método abstracto definido
      */
     @FunctionalInterface
-    interface TriFUnction<T, U, V, R> {
+    interface TriFunction<T, U, V, R> {
         R apply(T t, U u, V v);
     }
 }
